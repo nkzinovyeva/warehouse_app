@@ -4,7 +4,7 @@ import Table from './Table';
 export default function Shirtslist () {
 
     const [shirts, setShirts] = useState([]);
-    const [brands, setBrands] = useState([])
+    const [brands, setBrands] = useState(['reps', 'abiplos', 'nouke', 'derp', 'xoon'])
     const [stockData, setStockData] = useState([]);
     const [stock, setStock] = useState([]);
 
@@ -20,32 +20,31 @@ export default function Shirtslist () {
         })
         .catch(err => console.error(err)); 
         
-        setBrands([...new Set(shirts.map((x) => x.manufacturer))]); 
-        console.log(brands)
+        getStock()
+        //setBrands([...new Set(shirts.map((x) => x.manufacturer))]); 
+        
     
     }
 
     const getStock = () => {
-        
-        for (const i = 0; i < brands.length; i++) {
-            fetch ('https://bad-api-assignment.reaktor.com/availability/' + brands[i])
-            .then (response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                } 
-                response.json()
-            })
+        brands.map((value) => {
+            fetch ('https://bad-api-assignment.reaktor.com/availability/' + value)
+            .then (response => response.json())
             .then (data => {
-                setStock([data, ...stock])
-                console.log(stock) 
+                setStockData(data);
+                setStock(stockData, ...stock);
+
             })
-            .catch(err => console.error(err));
-        }  
-    }
+            .catch(err => console.error(err)); 
+          })
+          console.log(stockData)
+        }
+        
+    
 
     return (
         <div style={{ height: 800, width: '100%' }}>
-            <Table data = {shirts} />
+            <Table data = {shirts}  status = {stockData}/>
         </div>
     );
 }

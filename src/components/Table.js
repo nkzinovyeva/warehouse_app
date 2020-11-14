@@ -4,13 +4,15 @@ import { DataGrid } from '@material-ui/data-grid';
 
 function TablePr(props) {
 
+    console.log(props.status)
+
     const columns = [
         { field: 'id', headerName: 'ID', width: 250 },
         { field: 'name', headerName: 'Name', width: 300 },
         { field: 'manufacturer', headerName: 'Brand', width: 130 },
         { field: 'color', valueGetter: (params) => `${params.getValue('color')}`, headerName: 'Color', width: 130 },
         { field: 'price', headerName: 'Price', width: 130 },
-        { field: '',  headerName: 'Stock', width: 250 },
+        { field: 'props.status.id', headerName: 'Stock', width: 250 },
         
       ];
     
