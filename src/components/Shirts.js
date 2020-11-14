@@ -20,10 +20,8 @@ export default function Shirtslist () {
         })
         .catch(err => console.error(err)); 
         
-        getStock()
+        getStock();
         //setBrands([...new Set(shirts.map((x) => x.manufacturer))]); 
-        
-    
     }
 
     const getStock = () => {
@@ -31,20 +29,16 @@ export default function Shirtslist () {
             fetch ('https://bad-api-assignment.reaktor.com/availability/' + value)
             .then (response => response.json())
             .then (data => {
-                setStockData(data);
-                setStock(stockData, ...stock);
-
+                setStockData(data.response);
+                setStock([...stock, stockData]);
             })
             .catch(err => console.error(err)); 
           })
-          console.log(stockData)
-        }
+    }
         
-    
-
     return (
         <div style={{ height: 800, width: '100%' }}>
-            <Table data = {shirts}  status = {stockData}/>
+            <Table data = {shirts}  stock = {stockData} warehouse = {stock}/>
         </div>
     );
 }

@@ -8,7 +8,7 @@ import Jacketlist from './components/Jackets';
 import Accessorieslist from './components/Accessories';
 
 function App() {
-  const[value, setValue] = useState('jackets');
+  const[value, setValue] = useState('shirts');
 
   const handleChange= (event, value) => {setValue(value);};
 
