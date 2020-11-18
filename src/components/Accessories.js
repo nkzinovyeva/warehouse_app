@@ -2,13 +2,14 @@ import React, {useState, useEffect} from 'react';
 import Table from './Table';
 
 export default function Accessorieslist () {
+  
   const [accessories, setAccessories] = useState([]);
-  const [brands, setBrands] = useState(['reps', 'abiplos', 'nouke', 'derp', 'xoon'])
-  const [stock, setStock] = useState([]);
+  const [brands] = useState(['reps', 'abiplos', 'nouke', 'derp', 'xoon'])
+  const [stock] = useState([]);
 
   useEffect(() => {
-      fetchData()
-  }, []);
+    fetchData()
+}, []);
 
   const fetchData = () => {
       fetch ('https://bad-api-assignment.reaktor.com/products/accessories', {
@@ -23,7 +24,7 @@ export default function Accessorieslist () {
       .catch(err => console.error(err)); 
 
       getStock();
-  }
+  };
 
   const getStock = () => {
     let attemptsCount = 0;
@@ -44,19 +45,19 @@ export default function Accessorieslist () {
                 }
             })
             .catch(err => console.error(err));
-    }
+    };
     
     let iterateBrands = (index) => {
         if (index < brands.length) {
             setAvailability(brands[index], () => iterateBrands(index + 1))
         }
-    }
+    };
     iterateBrands(0);
-}
+};
       
   return (
       <div style={{ height: 800, width: '100%' }}>
           <Table data = {accessories}  stock = {stock}/>
       </div>
   );
-}
+};

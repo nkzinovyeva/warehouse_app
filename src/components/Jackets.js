@@ -1,7 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import Table from './Table';
 
-
 export default function Jacketlist () {
   const [jackets, setJackets] = useState([]);
   const [brands, setBrands] = useState(['reps', 'abiplos', 'nouke', 'derp', 'xoon'])
@@ -24,7 +23,7 @@ export default function Jacketlist () {
       .catch(err => console.error(err)); 
 
       getStock();
-  }
+  };
 
   const getStock = () => {
     let attemptsCount = 0;
@@ -45,19 +44,19 @@ export default function Jacketlist () {
                 }
             })
             .catch(err => console.error(err));
-    }
+    };
     
     let iterateBrands = (index) => {
         if (index < brands.length) {
             setAvailability(brands[index], () => iterateBrands(index + 1))
         }
-    }
+    };
     iterateBrands(0);
-}
+};
       
   return (
       <div style={{ height: 800, width: '100%' }}>
           <Table data = {jackets}  stock = {stock}/>
       </div>
   );
-}
+};
