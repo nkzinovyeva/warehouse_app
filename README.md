@@ -8,6 +8,8 @@
 
 #### Build with React JS
 
+The code deliberately contains some issues: due to the fact that the provided API contains a lot of errors, I bypassed critical errors and used manufacturers ' hardcode and identical code for product pages to preserve the efficiency and speed of request processing. Since the project was performed for a Junior position, comments in the code are left as reference points for visualizing the course of reasoning. * A project completed on the fly and can be modified and refined later.
+
 #### Link: https://warehouse-nz.herokuapp.com/
 
 
