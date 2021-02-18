@@ -5,6 +5,9 @@
 
   The client is a clothing brand that is looking for a simple web app to use in their warehouses. To do their work efficiently, the warehouse workers need a fast and simple listing page per product category, where they can check simple product and availability information from a single UI.
   The client does not have a ready-made API for this purpose. Instead, they have two different legacy APIs that combined can provide the needed information. The legacy APIs are on critical-maintenance-only mode, and thus further changes to them are not possible. The client knows the APIs are not excellent, but they are asking to work around any issues in the APIs in your new application.
+  
+  
+  <img src="images/demo1.png" width='300'>.  <img src="images/demo2.png" width='300'>.   <img src="images/demo3.png" width='300'>
 
 #### Build with React JS
 
